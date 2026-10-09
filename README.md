@@ -61,23 +61,6 @@ Keterangan:
 - `Pariwisata_Kota_Yogyakarta.rdf`: Data pariwisata dalam format RDF/XML.
 - `README.md`: Dokumentasi proyek.
 
-## Cara Menjalankan Website
-
-1. Pastikan PHP sudah terpasang pada komputer.
-2. Letakkan seluruh file proyek dalam satu folder.
-3. Pastikan ekstensi SimpleXML pada PHP aktif.
-4. Buka terminal pada folder proyek.
-5. Jalankan perintah berikut:
-
-```bash
-php -S localhost:8000
-```
-
-6. Buka browser dan akses:
-
-```text
-http://localhost:8000
-```
 ---
 
 _UTS Web Semantik — Kelas B_
