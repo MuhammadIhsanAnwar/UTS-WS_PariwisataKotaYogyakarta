@@ -20,7 +20,7 @@
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-pameran" />
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/toilet-umum" />
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-parkir" />
-        <prop:memilikiJamOperasional>Selasa–Minggu, 08.30–14.30 WIB; Senin tutup</prop:memilikiJamOperasional>
+        <prop:memilikiJamOperasional>Selasa–Minggu, 08.30–14.30 WIB</prop:memilikiJamOperasional>
         <prop:memilikiDeskripsi>Destinasi wisata sejarah dan budaya Kesultanan Yogyakarta</prop:memilikiDeskripsi>
     </rdf:Description>
     <rdf:Description rdf:about="https://wisatayogyakarta.neoverse.my.id/wisata/taman-sari">
@@ -30,7 +30,7 @@
         <prop:dikelolaOleh rdf:resource="https://wisatayogyakarta.neoverse.my.id/pengelola/taman-sari" />
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-parkir" />
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/toilet-umum" />
-        <prop:memilikiJamOperasional>Setiap hari, sekitar 09.00–15.00 WIB</prop:memilikiJamOperasional>
+        <prop:memilikiJamOperasional>Setiap hari, 09.00–15.00 WIB</prop:memilikiJamOperasional>
         <prop:memilikiDeskripsi>Kompleks bersejarah yang dahulu menjadi bagian dari lingkungan Keraton Yogyakarta</prop:memilikiDeskripsi>
     </rdf:Description>
     <rdf:Description rdf:about="https://wisatayogyakarta.neoverse.my.id/wisata/alun-alun-kidul">
@@ -50,7 +50,7 @@
         <prop:dikelolaOleh rdf:resource="https://wisatayogyakarta.neoverse.my.id/pengelola/uptd-museum-sonobudoyo" />
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-pameran" />
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/toilet-umum" />
-        <prop:memilikiJamOperasional>Selasa–Minggu; jam operasional perlu dikonfirmasi</prop:memilikiJamOperasional>
+        <prop:memilikiJamOperasional>Selasa–Minggu, 08.00-12.00 WIB</prop:memilikiJamOperasional>
         <prop:memilikiDeskripsi>Museum yang menyajikan koleksi sejarah dan kebudayaan</prop:memilikiDeskripsi>
     </rdf:Description>
     <rdf:Description rdf:about="https://wisatayogyakarta.neoverse.my.id/wisata/gembira-loka-zoo">
@@ -61,7 +61,7 @@
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-parkir" />
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/toilet-umum" />
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-pengamatan-satwa" />
-        <prop:memilikiJamOperasional>Setiap hari, sekitar 08.00–16.00 WIB; perlu dikonfirmasi</prop:memilikiJamOperasional>
+        <prop:memilikiJamOperasional>Setiap hari, 08.00–16.00 WIB</prop:memilikiJamOperasional>
         <prop:memilikiDeskripsi>Kebun binatang yang menyediakan wisata satwa dan rekreasi keluarga</prop:memilikiDeskripsi>
     </rdf:Description>
     <rdf:Description rdf:about="https://wisatayogyakarta.neoverse.my.id/wisata/taman-pintar">
@@ -72,7 +72,8 @@
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/wahana-edukasi" />
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-pameran" />
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/toilet-umum" />
-        <prop:memilikiJamOperasional>Sekitar 08.30–16.00 WIB; perlu dikonfirmasi</prop:memilikiJamOperasional>
+        <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-rekreasi" />
+        <prop:memilikiJamOperasional>Setiap hari, 08.30–16.00 WIB</prop:memilikiJamOperasional>
         <prop:memilikiDeskripsi>Destinasi wisata edukasi dengan wahana interaktif sains dan teknologi</prop:memilikiDeskripsi>
     </rdf:Description>
 </rdf:RDF>
