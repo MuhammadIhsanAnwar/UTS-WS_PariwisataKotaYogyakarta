@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Biarkan file aset dan RDF diakses langsung.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# URI resource RDF diarahkan ke index.php tanpa mengubah alamat pada browser.
+RewriteRule ^ index.php [L,QSA]

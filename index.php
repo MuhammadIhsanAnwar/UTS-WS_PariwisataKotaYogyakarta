@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 $rdfFile = __DIR__ . DIRECTORY_SEPARATOR . 'Pariwisata_Kota_Yogyakarta.rdf';
@@ -93,7 +94,12 @@ function displayLabel(string $uri, array $labels): string
 
 function localUriLink(string $uri): string
 {
-    return 'index.php?uri=' . rawurlencode($uri);
+    $path = parse_url($uri, PHP_URL_PATH);
+    if (!is_string($path) || $path === '') {
+        return 'index.php?uri=' . rawurlencode($uri);
+    }
+
+    return rtrim($path, '/') . '/';
 }
 
 function propertyLabel(string $predicate): string
@@ -119,6 +125,10 @@ $resources = $data['resources'];
 $labels = $data['labels'];
 $requestedUri = filter_input(INPUT_GET, 'uri', FILTER_UNSAFE_RAW);
 $requestedUri = is_string($requestedUri) ? trim($requestedUri) : '';
+$requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+if ($requestedUri === '' && is_string($requestPath) && $requestPath !== '/' && $requestPath !== '/index.php') {
+    $requestedUri = $baseUri . ltrim(rawurldecode($requestPath), '/');
+}
 $selectedUri = $requestedUri !== '' ? $requestedUri : null;
 $selectedResource = $selectedUri !== null && isset($resources[$selectedUri]) ? $resources[$selectedUri] : null;
 $knownUris = array_fill_keys(array_keys($resources), true);
@@ -140,125 +150,112 @@ if ($selectedUri !== null && !$isKnownUri) {
 $title = $selectedUri === null
     ? 'Pariwisata Kota Yogyakarta'
     : displayLabel($selectedUri, $labels);
-$description = $selectedUri === null
-    ? 'Jelajahi destinasi wisata dan hubungan semantik di Kota Yogyakarta.'
-    : ($selectedResource === null
-        ? 'URI ini tercatat sebagai bagian dari data RDF.'
-        : 'Detail sumber daya berdasarkan data RDF.');
-
 $tourismResources = array_filter(
     $resources,
-    static fn (array $properties, string $uri): bool => str_contains($uri, '/wisata/'),
+    static fn(array $properties, string $uri): bool => str_contains($uri, '/wisata/'),
     ARRAY_FILTER_USE_BOTH
 );
 ?>
 <!doctype html>
 <html lang="id">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?> | Wisata Yogyakarta</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<header class="site-header">
-    <div class="container header-content">
-        <a class="brand" href="index.php">
-            <span class="brand-mark">Y</span>
-            <span>Wisata Yogyakarta</span>
-        </a>
-        <nav aria-label="Navigasi utama">
-            <a href="index.php">Beranda</a>
-            <a href="#daftar-wisata">Daftar wisata</a>
-        </nav>
-    </div>
-</header>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="brand" href="index.php">
+                <span class="brand-mark">Y</span>
+                <span>Wisata Yogyakarta</span>
+            </a>
+        </div>
+    </header>
 
-<main class="container">
-    <?php if ($selectedUri !== null && !$isKnownUri): ?>
-        <section class="notice error">
-            <h1>URI tidak ditemukan</h1>
-            <p>URI yang diminta tidak terdapat dalam file RDF.</p>
-            <a class="button" href="index.php">Kembali ke beranda</a>
-        </section>
-    <?php elseif ($selectedUri !== null): ?>
-        <section class="detail-hero">
-            <p class="eyebrow">Resource RDF</p>
-            <h1><?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?></h1>
-            <p><?= htmlspecialchars($description, ENT_QUOTES, 'UTF-8') ?></p>
-            <code class="uri"><?= htmlspecialchars($selectedUri, ENT_QUOTES, 'UTF-8') ?></code>
-        </section>
+    <main class="container">
+        <?php if ($selectedUri !== null && !$isKnownUri): ?>
+            <section class="notice error">
+                <h1>URI tidak ditemukan</h1>
+                <p>URI yang diminta tidak terdapat dalam file RDF.</p>
+                <a class="button" href="index.php">Kembali ke beranda</a>
+            </section>
+        <?php elseif ($selectedUri !== null): ?>
+            <section class="detail-hero">
+                <p class="eyebrow">Pariwisata Kota Yogyakarta</p>
+                <h1><?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?></h1>
+            </section>
 
-        <section class="resource-card" aria-labelledby="properties-title">
-            <h2 id="properties-title">Properti dan nilai</h2>
-            <?php if ($selectedResource === null): ?>
-                <p class="muted">Resource ini digunakan sebagai nilai relasi dan belum memiliki deskripsi tersendiri di RDF.</p>
-            <?php else: ?>
-                <dl class="properties">
-                    <?php foreach ($selectedResource as $predicate => $values): ?>
-                        <div class="property">
-                            <dt><?= htmlspecialchars(propertyLabel($predicate), ENT_QUOTES, 'UTF-8') ?></dt>
-                            <dd>
-                                <?php foreach ($values as $value): ?>
-                                    <?php $isUri = filter_var($value, FILTER_VALIDATE_URL) !== false; ?>
-                                    <?php if ($isUri): ?>
-                                        <a class="resource-link" href="<?= htmlspecialchars(localUriLink($value), ENT_QUOTES, 'UTF-8') ?>">
-                                            <?= htmlspecialchars(displayLabel($value, $labels), ENT_QUOTES, 'UTF-8') ?>
-                                        </a>
-                                        <small><?= htmlspecialchars($value, ENT_QUOTES, 'UTF-8') ?></small>
-                                    <?php else: ?>
-                                        <span><?= htmlspecialchars($value, ENT_QUOTES, 'UTF-8') ?></span>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </dd>
-                        </div>
-                    <?php endforeach; ?>
-                </dl>
-            <?php endif; ?>
-        </section>
-        <a class="back-link" href="index.php">← Kembali ke daftar wisata</a>
-    <?php else: ?>
-        <section class="hero">
-            <div>
-                <p class="eyebrow">Katalog semantik</p>
-                <h1>Temukan pesona<br><span>Yogyakarta</span></h1>
-                <p>Data destinasi wisata Yogyakarta yang terhubung melalui RDF. Pilih destinasi untuk melihat seluruh properti dan URI terkait.</p>
-                <a class="button" href="#daftar-wisata">Jelajahi destinasi</a>
-            </div>
-            <div class="hero-art" aria-hidden="true">✦</div>
-        </section>
-
-        <section id="daftar-wisata" class="listing">
-            <div class="section-heading">
+            <section class="resource-card" aria-labelledby="properties-title">
+                <h2 id="properties-title">Properti dan nilai</h2>
+                <?php if ($selectedResource === null): ?>
+                    <p class="muted">Resource ini digunakan sebagai nilai relasi dan belum memiliki deskripsi tersendiri di RDF.</p>
+                <?php else: ?>
+                    <dl class="properties">
+                        <?php foreach ($selectedResource as $predicate => $values): ?>
+                            <div class="property">
+                                <dt><?= htmlspecialchars(propertyLabel($predicate), ENT_QUOTES, 'UTF-8') ?></dt>
+                                <dd>
+                                    <?php foreach ($values as $value): ?>
+                                        <?php $isUri = filter_var($value, FILTER_VALIDATE_URL) !== false; ?>
+                                        <?php if ($isUri): ?>
+                                            <span><?= htmlspecialchars(displayLabel($value, $labels), ENT_QUOTES, 'UTF-8') ?></span>
+                                        <?php else: ?>
+                                            <span><?= htmlspecialchars($value, ENT_QUOTES, 'UTF-8') ?></span>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </dd>
+                            </div>
+                        <?php endforeach; ?>
+                    </dl>
+                <?php endif; ?>
+            </section>
+            <a class="back-link" href="index.php">← Kembali ke daftar wisata</a>
+        <?php else: ?>
+            <section class="hero">
                 <div>
-                    <p class="eyebrow">Data RDF</p>
-                    <h2>Destinasi pilihan</h2>
+                    <p class="eyebrow">Pariwisata Kota Yogyakarta</p>
+                    <h1>Temukan pesona<br><span>Yogyakarta</span></h1>
+                    <a class="button" href="#daftar-wisata">Jelajahi destinasi</a>
                 </div>
-                <span class="count"><?= count($tourismResources) ?> destinasi</span>
-            </div>
-            <div class="card-grid">
-                <?php foreach ($tourismResources as $uri => $resource): ?>
-                    <?php $name = displayLabel($uri, $labels); ?>
-                    <article class="destination-card">
-                        <div class="card-top">
-                            <span class="card-icon">✦</span>
-                            <span class="card-type">Wisata</span>
-                        </div>
-                        <h3><?= htmlspecialchars($name, ENT_QUOTES, 'UTF-8') ?></h3>
-                        <p><?= htmlspecialchars($resource[$propertyNamespace . 'memilikiDeskripsi'][0] ?? 'Destinasi wisata di Kota Yogyakarta.', ENT_QUOTES, 'UTF-8') ?></p>
-                        <a class="card-link" href="<?= htmlspecialchars(localUriLink($uri), ENT_QUOTES, 'UTF-8') ?>">Lihat detail <span>→</span></a>
-                    </article>
-                <?php endforeach; ?>
-            </div>
-        </section>
-    <?php endif; ?>
-</main>
+                <div class="hero-art" aria-hidden="true">✦</div>
+            </section>
 
-<footer class="site-footer">
-    <div class="container">
-        <span>Pariwisata Kota Yogyakarta</span>
-        <span>Sumber data: Pariwisata_Kota_Yogyakarta.rdf</span>
-    </div>
-</footer>
+            <section id="daftar-wisata" class="listing">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Pilihan Pariwisata</p>
+                        <h2>Destinasi pilihan</h2>
+                    </div>
+                    <span class="count"><?= count($tourismResources) ?> destinasi</span>
+                </div>
+                <div class="card-grid">
+                    <?php foreach ($tourismResources as $uri => $resource): ?>
+                        <?php $name = displayLabel($uri, $labels); ?>
+                        <article class="destination-card">
+                            <div class="card-top">
+                                <span class="card-icon">✦</span>
+                                <span class="card-type">Wisata</span>
+                            </div>
+                            <h3><?= htmlspecialchars($name, ENT_QUOTES, 'UTF-8') ?></h3>
+                            <p><?= htmlspecialchars($resource[$propertyNamespace . 'memilikiDeskripsi'][0] ?? 'Destinasi wisata di Kota Yogyakarta.', ENT_QUOTES, 'UTF-8') ?></p>
+                            <a class="card-link" href="<?= htmlspecialchars(localUriLink($uri), ENT_QUOTES, 'UTF-8') ?>">Lihat detail <span>→</span></a>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
+            </section>
+        <?php endif; ?>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <span>Pariwisata Kota Yogyakarta</span>
+        </div>
+    </footer>
 </body>
+
 </html>
