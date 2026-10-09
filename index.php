@@ -127,7 +127,8 @@ $requestedUri = filter_input(INPUT_GET, 'uri', FILTER_UNSAFE_RAW);
 $requestedUri = is_string($requestedUri) ? trim($requestedUri) : '';
 $requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
 if ($requestedUri === '' && is_string($requestPath) && $requestPath !== '/' && $requestPath !== '/index.php') {
-    $requestedUri = $baseUri . ltrim(rawurldecode($requestPath), '/');
+    $resourcePath = trim(rawurldecode($requestPath), '/');
+    $requestedUri = $baseUri . $resourcePath;
 }
 $selectedUri = $requestedUri !== '' ? $requestedUri : null;
 $selectedResource = $selectedUri !== null && isset($resources[$selectedUri]) ? $resources[$selectedUri] : null;
@@ -163,14 +164,14 @@ $tourismResources = array_filter(
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?> | Wisata Yogyakarta</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
     <header class="site-header">
         <div class="container header-content">
-            <a class="brand" href="index.php">
+            <a class="brand" href="/">
                 <span class="brand-mark">Y</span>
                 <span>Wisata Yogyakarta</span>
             </a>
@@ -182,7 +183,7 @@ $tourismResources = array_filter(
             <section class="notice error">
                 <h1>URI tidak ditemukan</h1>
                 <p>URI yang diminta tidak terdapat dalam file RDF.</p>
-                <a class="button" href="index.php">Kembali ke beranda</a>
+                <a class="button" href="/">Kembali ke beranda</a>
             </section>
         <?php elseif ($selectedUri !== null): ?>
             <section class="detail-hero">
@@ -214,7 +215,7 @@ $tourismResources = array_filter(
                     </dl>
                 <?php endif; ?>
             </section>
-            <a class="back-link" href="index.php">← Kembali ke daftar wisata</a>
+            <a class="back-link" href="/">← Kembali ke daftar wisata</a>
         <?php else: ?>
             <section class="hero">
                 <div>
