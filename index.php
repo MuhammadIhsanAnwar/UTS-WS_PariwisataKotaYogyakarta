@@ -219,7 +219,7 @@ $tourismResources = array_filter(
             <section class="resource-card" aria-labelledby="properties-title">
                 <h2 id="properties-title">Informasi Tempat</h2>
                 <?php if ($selectedResource === null): ?>
-                    <p class="muted">Resource ini digunakan sebagai nilai relasi dan belum memiliki deskripsi tersendiri di RDF.</p>
+                    <p class="muted">Resource ini belum memiliki deskripsi tersendiri di RDF.</p>
                 <?php else: ?>
                     <dl class="properties">
                         <?php foreach ($selectedResource as $predicate => $values): ?>
