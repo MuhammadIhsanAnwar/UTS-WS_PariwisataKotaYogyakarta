@@ -105,6 +105,22 @@ function localUriLink(string $uri): string
 function propertyLabel(string $predicate): string
 {
     $name = basename(str_replace('#', '/', $predicate));
+    $labels = [
+        'memilikiNama' => 'Nama Tempat',
+        'memilikiGambar' => 'Gambar',
+        'memilikiLinkMaps' => 'Google Maps',
+        'beradaDi' => 'Lokasi',
+        'memilikiKategoriUtama' => 'Kategori',
+        'dikelolaOleh' => 'Pengelola',
+        'memilikiFasilitas' => 'Fasilitas',
+        'memilikiJamOperasional' => 'Jam Operasional',
+        'memilikiDeskripsi' => 'Deskripsi',
+    ];
+
+    if (isset($labels[$name])) {
+        return $labels[$name];
+    }
+
     $name = preg_replace('/([a-z])([A-Z])/', '$1 $2', $name) ?? $name;
     return ucfirst($name);
 }
@@ -151,6 +167,12 @@ if ($selectedUri !== null && !$isKnownUri) {
 $title = $selectedUri === null
     ? 'Pariwisata Kota Yogyakarta'
     : displayLabel($selectedUri, $labels);
+$imageUrl = is_array($selectedResource)
+    ? ($selectedResource['https://wisatayogyakarta.neoverse.my.id/vocabulary#memilikiGambar'][0] ?? null)
+    : null;
+$mapsUrl = is_array($selectedResource)
+    ? ($selectedResource['https://wisatayogyakarta.neoverse.my.id/vocabulary#memilikiLinkMaps'][0] ?? null)
+    : null;
 $tourismResources = array_filter(
     $resources,
     static fn(array $properties, string $uri): bool => str_contains($uri, '/wisata/'),
@@ -189,22 +211,33 @@ $tourismResources = array_filter(
             <section class="detail-hero">
                 <p class="eyebrow">Pariwisata Kota Yogyakarta</p>
                 <h1><?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?></h1>
+                <?php if (is_string($imageUrl) && filter_var($imageUrl, FILTER_VALIDATE_URL) !== false): ?>
+                    <img class="detail-image" src="<?= htmlspecialchars($imageUrl, ENT_QUOTES, 'UTF-8') ?>" alt="Foto <?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?>">
+                <?php endif; ?>
             </section>
 
             <section class="resource-card" aria-labelledby="properties-title">
-                <h2 id="properties-title">Properti dan nilai</h2>
+                <h2 id="properties-title">Informasi Tempat</h2>
                 <?php if ($selectedResource === null): ?>
                     <p class="muted">Resource ini digunakan sebagai nilai relasi dan belum memiliki deskripsi tersendiri di RDF.</p>
                 <?php else: ?>
                     <dl class="properties">
                         <?php foreach ($selectedResource as $predicate => $values): ?>
+                            <?php $predicateName = basename(str_replace('#', '/', $predicate)); ?>
+                            <?php if ($predicateName === 'memilikiGambar'): continue; endif; ?>
                             <div class="property">
                                 <dt><?= htmlspecialchars(propertyLabel($predicate), ENT_QUOTES, 'UTF-8') ?></dt>
                                 <dd>
                                     <?php foreach ($values as $value): ?>
                                         <?php $isUri = filter_var($value, FILTER_VALIDATE_URL) !== false; ?>
-                                        <?php if ($isUri): ?>
-                                            <span><?= htmlspecialchars(displayLabel($value, $labels), ENT_QUOTES, 'UTF-8') ?></span>
+                                        <?php if ($predicateName === 'memilikiLinkMaps' && filter_var($value, FILTER_VALIDATE_URL) !== false): ?>
+                                            <a class="resource-link" href="<?= htmlspecialchars($value, ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener noreferrer">
+                                                Buka lokasi di Google Maps
+                                            </a>
+                                        <?php elseif ($isUri): ?>
+                                            <a class="resource-link" href="<?= htmlspecialchars(localUriLink($value), ENT_QUOTES, 'UTF-8') ?>">
+                                                <?= htmlspecialchars(displayLabel($value, $labels), ENT_QUOTES, 'UTF-8') ?>
+                                            </a>
                                         <?php else: ?>
                                             <span><?= htmlspecialchars($value, ENT_QUOTES, 'UTF-8') ?></span>
                                         <?php endif; ?>

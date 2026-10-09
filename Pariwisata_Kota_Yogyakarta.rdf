@@ -11,6 +11,8 @@
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-parkir" />
         <prop:memilikiJamOperasional>Kawasan jalan dapat dikunjungi 24 jam</prop:memilikiJamOperasional>
         <prop:memilikiDeskripsi>Kawasan wisata belanja dan kuliner di Kota Yogyakarta</prop:memilikiDeskripsi>
+        <prop:memilikiGambar rdf:resource="https://commons.wikimedia.org/wiki/Special:FilePath/Kawasan_Malioboro_Yogyakarta.jpg" />
+        <prop:memilikiLinkMaps>https://www.google.com/maps/search/?api=1&amp;query=Malioboro+Yogyakarta</prop:memilikiLinkMaps>
     </rdf:Description>
     <rdf:Description rdf:about="https://wisatayogyakarta.neoverse.my.id/wisata/keraton-yogyakarta">
         <prop:memilikiNama>Keraton Yogyakarta</prop:memilikiNama>
@@ -22,6 +24,8 @@
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-parkir" />
         <prop:memilikiJamOperasional>Selasa–Minggu, 08.30–14.30 WIB</prop:memilikiJamOperasional>
         <prop:memilikiDeskripsi>Destinasi wisata sejarah dan budaya Kesultanan Yogyakarta</prop:memilikiDeskripsi>
+        <prop:memilikiGambar rdf:resource="https://commons.wikimedia.org/wiki/Special:FilePath/Kraton_Yogyakarta.jpg" />
+        <prop:memilikiLinkMaps>https://www.google.com/maps/search/?api=1&amp;query=Keraton+Yogyakarta</prop:memilikiLinkMaps>
     </rdf:Description>
     <rdf:Description rdf:about="https://wisatayogyakarta.neoverse.my.id/wisata/taman-sari">
         <prop:memilikiNama>Taman Sari</prop:memilikiNama>
@@ -32,6 +36,8 @@
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/toilet-umum" />
         <prop:memilikiJamOperasional>Setiap hari, 09.00–15.00 WIB</prop:memilikiJamOperasional>
         <prop:memilikiDeskripsi>Kompleks bersejarah yang dahulu menjadi bagian dari lingkungan Keraton Yogyakarta</prop:memilikiDeskripsi>
+        <prop:memilikiGambar rdf:resource="https://commons.wikimedia.org/wiki/Special:FilePath/Taman_Sari_Yogyakarta.jpg" />
+        <prop:memilikiLinkMaps>https://www.google.com/maps/search/?api=1&amp;query=Taman+Sari+Yogyakarta</prop:memilikiLinkMaps>
     </rdf:Description>
     <rdf:Description rdf:about="https://wisatayogyakarta.neoverse.my.id/wisata/alun-alun-kidul">
         <prop:memilikiNama>Alun-Alun Kidul</prop:memilikiNama>
@@ -42,6 +48,8 @@
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/toilet-umum" />
         <prop:memilikiJamOperasional>Area terbuka dapat dikunjungi sepanjang hari</prop:memilikiJamOperasional>
         <prop:memilikiDeskripsi>Ruang terbuka publik untuk rekreasi masyarakat dan wisata malam</prop:memilikiDeskripsi>
+        <prop:memilikiGambar rdf:resource="https://commons.wikimedia.org/wiki/Special:FilePath/Alun-Alun_Kidul_Yogyakarta.jpg" />
+        <prop:memilikiLinkMaps>https://www.google.com/maps/search/?api=1&amp;query=Alun-Alun+Kidul+Yogyakarta</prop:memilikiLinkMaps>
     </rdf:Description>
     <rdf:Description rdf:about="https://wisatayogyakarta.neoverse.my.id/wisata/museum-sonobudoyo">
         <prop:memilikiNama>Museum Sonobudoyo</prop:memilikiNama>
@@ -52,6 +60,8 @@
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/toilet-umum" />
         <prop:memilikiJamOperasional>Selasa–Minggu, 08.00-12.00 WIB</prop:memilikiJamOperasional>
         <prop:memilikiDeskripsi>Museum yang menyajikan koleksi sejarah dan kebudayaan</prop:memilikiDeskripsi>
+        <prop:memilikiGambar rdf:resource="https://commons.wikimedia.org/wiki/Special:FilePath/Museum_Sonobudoyo%2C_Jogja_%282025%29_-_img_01.jpg" />
+        <prop:memilikiLinkMaps>https://www.google.com/maps/search/?api=1&amp;query=Museum+Sonobudoyo+Yogyakarta</prop:memilikiLinkMaps>
     </rdf:Description>
     <rdf:Description rdf:about="https://wisatayogyakarta.neoverse.my.id/wisata/gembira-loka-zoo">
         <prop:memilikiNama>Gembira Loka Zoo</prop:memilikiNama>
@@ -63,6 +73,8 @@
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-pengamatan-satwa" />
         <prop:memilikiJamOperasional>Setiap hari, 08.00–16.00 WIB</prop:memilikiJamOperasional>
         <prop:memilikiDeskripsi>Kebun binatang yang menyediakan wisata satwa dan rekreasi keluarga</prop:memilikiDeskripsi>
+        <prop:memilikiGambar rdf:resource="https://commons.wikimedia.org/wiki/Special:FilePath/Gembira_Loka_Zoo_in_Yogyakarta.jpg" />
+        <prop:memilikiLinkMaps>https://www.google.com/maps/search/?api=1&amp;query=Gembira+Loka+Zoo</prop:memilikiLinkMaps>
     </rdf:Description>
     <rdf:Description rdf:about="https://wisatayogyakarta.neoverse.my.id/wisata/taman-pintar">
         <prop:memilikiNama>Taman Pintar Yogyakarta</prop:memilikiNama>
@@ -75,5 +87,7 @@
         <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-rekreasi" />
         <prop:memilikiJamOperasional>Setiap hari, 08.30–16.00 WIB</prop:memilikiJamOperasional>
         <prop:memilikiDeskripsi>Destinasi wisata edukasi dengan wahana interaktif sains dan teknologi</prop:memilikiDeskripsi>
+        <prop:memilikiGambar rdf:resource="https://commons.wikimedia.org/wiki/Special:FilePath/Taman_Pintar_Yogyakarta.jpg" />
+        <prop:memilikiLinkMaps>https://www.google.com/maps/search/?api=1&amp;query=Taman+Pintar+Yogyakarta</prop:memilikiLinkMaps>
     </rdf:Description>
 </rdf:RDF>
