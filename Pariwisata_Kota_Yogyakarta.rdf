@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rdf:RDF xmlns:prop="https://wisatayogyakarta.neoverse.my.id/vocabulary#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="https://wisatayogyakarta.neoverse.my.id/wisata/malioboro">
+        <prop:memilikiNama>Malioboro</prop:memilikiNama>
+        <prop:beradaDi rdf:resource="https://wisatayogyakarta.neoverse.my.id/lokasi/gedongtengen" />
+        <prop:memilikiKategoriUtama rdf:resource="https://wisatayogyakarta.neoverse.my.id/kategori/wisata-belanja" />
+        <prop:dikelolaOleh rdf:resource="https://wisatayogyakarta.neoverse.my.id/pengelola/pemerintah-kota-yogyakarta" />
+        <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/jalur-pedestrian" />
+        <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/toilet-umum" />
+        <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-parkir" />
+        <prop:memilikiJamOperasional>Kawasan jalan dapat dikunjungi 24 jam</prop:memilikiJamOperasional>
+        <prop:memilikiDeskripsi>Kawasan wisata belanja dan kuliner di Kota Yogyakarta</prop:memilikiDeskripsi>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://wisatayogyakarta.neoverse.my.id/wisata/keraton-yogyakarta">
+        <prop:memilikiNama>Keraton Yogyakarta</prop:memilikiNama>
+        <prop:beradaDi rdf:resource="https://wisatayogyakarta.neoverse.my.id/lokasi/kraton" />
+        <prop:memilikiKategoriUtama rdf:resource="https://wisatayogyakarta.neoverse.my.id/kategori/wisata-budaya" />
+        <prop:dikelolaOleh rdf:resource="https://wisatayogyakarta.neoverse.my.id/pengelola/keraton-yogyakarta" />
+        <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-pameran" />
+        <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/toilet-umum" />
+        <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-parkir" />
+        <prop:memilikiJamOperasional>Selasa–Minggu, 08.30–14.30 WIB; Senin tutup</prop:memilikiJamOperasional>
+        <prop:memilikiDeskripsi>Destinasi wisata sejarah dan budaya Kesultanan Yogyakarta</prop:memilikiDeskripsi>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://wisatayogyakarta.neoverse.my.id/wisata/taman-sari">
+        <prop:memilikiNama>Taman Sari</prop:memilikiNama>
+        <prop:beradaDi rdf:resource="https://wisatayogyakarta.neoverse.my.id/lokasi/kraton" />
+        <prop:memilikiKategoriUtama rdf:resource="https://wisatayogyakarta.neoverse.my.id/kategori/wisata-sejarah" />
+        <prop:dikelolaOleh rdf:resource="https://wisatayogyakarta.neoverse.my.id/pengelola/taman-sari" />
+        <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-parkir" />
+        <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/toilet-umum" />
+        <prop:memilikiJamOperasional>Setiap hari, sekitar 09.00–15.00 WIB</prop:memilikiJamOperasional>
+        <prop:memilikiDeskripsi>Kompleks bersejarah yang dahulu menjadi bagian dari lingkungan Keraton Yogyakarta</prop:memilikiDeskripsi>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://wisatayogyakarta.neoverse.my.id/wisata/alun-alun-kidul">
+        <prop:memilikiNama>Alun-Alun Kidul</prop:memilikiNama>
+        <prop:beradaDi rdf:resource="https://wisatayogyakarta.neoverse.my.id/lokasi/kraton" />
+        <prop:memilikiKategoriUtama rdf:resource="https://wisatayogyakarta.neoverse.my.id/kategori/wisata-rekreasi" />
+        <prop:dikelolaOleh rdf:resource="https://wisatayogyakarta.neoverse.my.id/pengelola/pemerintah-kota-yogyakarta" />
+        <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-parkir" />
+        <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/toilet-umum" />
+        <prop:memilikiJamOperasional>Area terbuka dapat dikunjungi sepanjang hari</prop:memilikiJamOperasional>
+        <prop:memilikiDeskripsi>Ruang terbuka publik untuk rekreasi masyarakat dan wisata malam</prop:memilikiDeskripsi>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://wisatayogyakarta.neoverse.my.id/wisata/museum-sonobudoyo">
+        <prop:memilikiNama>Museum Sonobudoyo</prop:memilikiNama>
+        <prop:beradaDi rdf:resource="https://wisatayogyakarta.neoverse.my.id/lokasi/gondomanan" />
+        <prop:memilikiKategoriUtama rdf:resource="https://wisatayogyakarta.neoverse.my.id/kategori/wisata-museum" />
+        <prop:dikelolaOleh rdf:resource="https://wisatayogyakarta.neoverse.my.id/pengelola/uptd-museum-sonobudoyo" />
+        <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-pameran" />
+        <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/toilet-umum" />
+        <prop:memilikiJamOperasional>Selasa–Minggu; jam operasional perlu dikonfirmasi</prop:memilikiJamOperasional>
+        <prop:memilikiDeskripsi>Museum yang menyajikan koleksi sejarah dan kebudayaan</prop:memilikiDeskripsi>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://wisatayogyakarta.neoverse.my.id/wisata/gembira-loka-zoo">
+        <prop:memilikiNama>Gembira Loka Zoo</prop:memilikiNama>
+        <prop:beradaDi rdf:resource="https://wisatayogyakarta.neoverse.my.id/lokasi/kotagede" />
+        <prop:memilikiKategoriUtama rdf:resource="https://wisatayogyakarta.neoverse.my.id/kategori/wisata-satwa" />
+        <prop:dikelolaOleh rdf:resource="https://wisatayogyakarta.neoverse.my.id/pengelola/pt-buana-alam-tirta" />
+        <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-parkir" />
+        <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/toilet-umum" />
+        <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-pengamatan-satwa" />
+        <prop:memilikiJamOperasional>Setiap hari, sekitar 08.00–16.00 WIB; perlu dikonfirmasi</prop:memilikiJamOperasional>
+        <prop:memilikiDeskripsi>Kebun binatang yang menyediakan wisata satwa dan rekreasi keluarga</prop:memilikiDeskripsi>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://wisatayogyakarta.neoverse.my.id/wisata/taman-pintar">
+        <prop:memilikiNama>Taman Pintar Yogyakarta</prop:memilikiNama>
+        <prop:beradaDi rdf:resource="https://wisatayogyakarta.neoverse.my.id/lokasi/gondomanan" />
+        <prop:memilikiKategoriUtama rdf:resource="https://wisatayogyakarta.neoverse.my.id/kategori/wisata-edukasi" />
+        <prop:dikelolaOleh rdf:resource="https://wisatayogyakarta.neoverse.my.id/pengelola/taman-pintar" />
+        <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/wahana-edukasi" />
+        <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/area-pameran" />
+        <prop:memilikiFasilitas rdf:resource="https://wisatayogyakarta.neoverse.my.id/fasilitas/toilet-umum" />
+        <prop:memilikiJamOperasional>Sekitar 08.30–16.00 WIB; perlu dikonfirmasi</prop:memilikiJamOperasional>
+        <prop:memilikiDeskripsi>Destinasi wisata edukasi dengan wahana interaktif sains dan teknologi</prop:memilikiDeskripsi>
+    </rdf:Description>
+</rdf:RDF>
