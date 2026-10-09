@@ -46,13 +46,13 @@ Proyek ini mencakup tujuh objek wisata di Kota Yogyakarta dan sekitarnya.
 
 | No. | Objek Wisata            | Informasi yang Dimodelkan                             |
 | :-: | :---------------------- | :---------------------------------------------------- |
-|  1  | Malioboro               | Lokasi, kategori, pengelola, fasilitas, dan deskripsi |
-|  2  | Keraton Yogyakarta      | Lokasi, kategori, pengelola, fasilitas, dan deskripsi |
-|  3  | Taman Sari              | Lokasi, kategori, pengelola, fasilitas, dan deskripsi |
-|  4  | Alun-Alun Kidul         | Lokasi, kategori, pengelola, fasilitas, dan deskripsi |
-|  5  | Museum Sonobudoyo       | Lokasi, kategori, pengelola, fasilitas, dan deskripsi |
-|  6  | Gembira Loka Zoo        | Lokasi, kategori, pengelola, fasilitas, dan deskripsi |
-|  7  | Taman Pintar Yogyakarta | Lokasi, kategori, pengelola, fasilitas, dan deskripsi |
+|  1  | Malioboro               | Lokasi, kategori, pengelola, fasilitas, dan |
+|  2  | Keraton Yogyakarta      | Lokasi, kategori, pengelola, fasilitas, dan |
+|  3  | Taman Sari              | Lokasi, kategori, pengelola, fasilitas, dan |
+|  4  | Alun-Alun Kidul         | Lokasi, kategori, pengelola, fasilitas, dan |
+|  5  | Museum Sonobudoyo       | Lokasi, kategori, pengelola, fasilitas, dan |
+|  6  | Gembira Loka Zoo        | Lokasi, kategori, pengelola, fasilitas, dan |
+|  7  | Taman Pintar Yogyakarta | Lokasi, kategori, pengelola, fasilitas, dan |
 
 _Catatan: Cakupan administratif dan nilai atribut setiap objek mengikuti data yang didefinisikan dalam berkas RDF._
 
